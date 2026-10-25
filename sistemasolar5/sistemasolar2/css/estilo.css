@@ -1,0 +1,411 @@
+:root {
+  --color-fondo: #0b0f19;
+  --color-superficie: #1e293b;
+  --color-tarjeta: #0d1b2a;
+  --color-tarjeta-reverso: #1b263b;
+  --color-texto: #f1f5f9;
+  --color-texto-suave: #cbd5e1;
+  --color-primario: #3b82f6;
+  --color-primario-oscuro: #2563eb;
+  --color-acento: #00d2ff;
+  --color-acento-claro: #60a5fa;
+  --color-error: #fca5a5;
+  --color-exito: #4ade80;
+  --color-campo: #0f172a;
+  --color-borde-campo: #475569;
+  --color-placeholder: #64748b;
+  --color-texto-boton-hover: #000000;
+  --sombra-tarjeta-hover: 0 0 25px rgba(96, 165, 250, 0.7);
+  --sombra-imagen: 0 0 12px rgba(96, 165, 250, 0.5);
+  --sombra-titulo: 0 0 8px rgba(255, 255, 255, 0.6);
+  --sombra-subtitulo: 0 0 8px rgba(96, 165, 250, 0.5);
+  --sombra-suscripcion: 0 0 20px rgba(59, 130, 246, 0.3);
+  --sombra-campo: 0 0 8px rgba(96, 165, 250, 0.6);
+  --sombra-boton: 0 0 12px rgba(37, 99, 235, 0.8);
+  --espacio-base: 1rem;
+  --fuente-principal: Arial, sans-serif;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  padding: var(--espacio-base);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.encabezado,
+.pie-pagina {
+  text-align: center;
+}
+
+.encabezado nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacio-base);
+  flex-wrap: wrap;
+}
+
+.encabezado nav a {
+  color: var(--color-acento);
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.encabezado nav a:hover {
+  color: var(--color-texto);
+  text-decoration: underline;
+}
+
+.seccion-planetas > h2 {
+  text-align: center;
+}
+
+.controles-planetas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.controles-planetas select {
+  padding: 0.6rem;
+  border: 1px solid var(--color-primario);
+  border-radius: 6px;
+}
+
+main {
+  display: grid;
+  gap: 2rem;
+}
+
+@keyframes flotarTitulo {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px); 
+  }
+  100% {
+    transform: translateY(0px); 
+  }
+}
+
+
+h1 { 
+  text-align: center; 
+  color: var(--color-texto);
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  
+  text-shadow: 0 0 10px var(--color-primario), 0 0 20px var(--color-acento-claro);
+  
+  animation: flotarTitulo 3s ease-in-out infinite;
+}
+
+#contenedor-planetas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+
+.tarjeta-planeta {
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  color: var(--color-texto);
+  background-color: transparent;
+}
+
+
+.tarjeta-planeta:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: var(--sombra-tarjeta-hover); /* Brillo neón más fuerte */
+}
+
+
+.tarjeta-planeta img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-acento-claro);
+  display: block;
+  margin: 0 auto 12px auto;
+  box-shadow: var(--sombra-imagen);
+  transition: transform 0.7s ease;
+}
+
+.tarjeta-planeta:hover img {
+  transform: rotate(12deg) scale(1.08);
+}
+
+.tarjeta-planeta h3 {
+  color: var(--color-texto);
+  font-size: 1.3rem;
+  margin: 10px 0 5px 0;
+  
+  text-shadow: var(--sombra-titulo);
+}
+
+.tipo {
+  color: var(--color-acento-claro);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.tarjeta-planeta p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--color-texto-suave);
+}
+
+
+.seccion-suscripcion {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: var(--color-superficie);
+  padding: 25px;
+  border-radius: 12px;
+  border: 2px solid var(--color-primario);
+  text-align: center;
+  box-shadow: var(--sombra-suscripcion);
+}
+
+.seccion-suscripcion h2 {
+  color: var(--color-texto);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  text-shadow: var(--sombra-subtitulo);
+}
+
+.seccion-suscripcion label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.seccion-suscripcion input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: var(--color-campo);
+  border: 1px solid var(--color-borde-campo);
+  border-radius: 6px;
+  color: var(--color-texto);
+  box-sizing: border-box;
+}
+
+.seccion-suscripcion input:focus {
+  outline: none;
+  border-color: var(--color-acento-claro);
+  box-shadow: var(--sombra-campo);
+}
+
+.seccion-suscripcion input::placeholder {
+  color: var(--color-placeholder);
+}
+
+.seccion-suscripcion button {
+  width: 100%;
+  background-color: var(--color-primario-oscuro);
+  color: var(--color-texto);
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.seccion-suscripcion button:hover {
+  background-color: var(--color-primario);
+  box-shadow: var(--sombra-boton);
+}
+
+
+.tarjeta-contenedor {
+  width: min(100%, 300px);
+  height: 420px;
+  perspective: 1000px; 
+  margin: 20px auto;
+}
+
+
+.tarjeta {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out; /* Velocidad y suavidad del giro */
+}
+
+
+.tarjeta.rotada {
+  transform: rotateY(180deg);
+}
+
+
+.tarjeta-lado {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  border: 2px solid var(--color-acento);
+  border-radius: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--color-tarjeta);
+  color: var(--color-texto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tarjeta-atras p {
+  margin: 4px 0;
+  font-size: 0.85rem;
+  line-height: 1.25;
+}
+
+
+.tarjeta-atras {
+  transform: rotateY(180deg);
+  background-color: var(--color-tarjeta-reverso);
+  overflow-y: auto;
+  justify-content: flex-start;
+  gap: 0.35rem;
+}
+
+.tarjeta-atras .btn-volver {
+  margin-top: auto;
+}
+
+
+.btn-saber-mas {
+  background-color: transparent;
+  color: var(--color-acento);
+  border: 2px solid var(--color-acento);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-saber-mas:hover {
+  background-color: var(--color-acento);
+  color: var(--color-texto-boton-hover);
+  box-shadow: 0 0 10px var(--color-acento);
+}
+
+.mensaje-formulario {
+  min-height: 1.25rem;
+}
+
+.mensaje-error {
+  color: var(--color-error);
+}
+
+.mensaje-exito {
+  color: var(--color-exito);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+dialog {
+  width: min(90vw, 500px);
+  max-height: 85vh;
+  padding: 0;
+  border: 2px solid var(--color-acento);
+  border-radius: 15px;
+  background-color: var(--color-tarjeta-reverso);
+  color: var(--color-texto);
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+
+.contenido-modal {
+  position: relative;
+  padding: 1.5rem;
+}
+
+.contenido-modal h2 {
+  padding-right: 2rem;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--color-texto);
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.pie-pagina {
+  margin-top: 2rem;
+  color: var(--color-texto-suave);
+}
+
+.pie-pagina p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 600px) {
+  #contenedor-planetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (min-width: 1000px) {
+  #contenedor-planetas {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+video {
+    display: block;
+    margin: 20px auto;
+}
+
+.titulo-video {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+video {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}

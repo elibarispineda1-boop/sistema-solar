@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/planetas.js" defer></script>
+    <title>Directorio de Planetas</title>
+</head>
+<body>
+    <header class="encabezado">
+        <h1>Sistema Solar y Planetas</h1>
+        <nav aria-label="Navegación principal">
+            <a href="#contenedor-planetas">Planetas</a>
+            <a href="#seccion-video">Video</a>
+            <a href="#suscripcion">Suscripción</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion-planetas" aria-labelledby="titulo-planetas">
+            <h2 id="titulo-planetas">Explora los planetas</h2>
+            <div class="controles-planetas">
+                <label for="filtro-tipo">Filtrar por tipo:</label>
+                <select id="filtro-tipo">
+                    <option value="todos">Todos</option>
+                    <option value="Planeta rocoso">Planetas rocosos</option>
+                    <option value="Gigante gaseoso">Gigantes gaseosos</option>
+                    <option value="Gigante helado">Gigantes helados</option>
+                    <option value="Planeta enano">Planetas enanos</option>
+                </select>
+            </div>
+            <div id="contenedor-planetas"></div>
+
+<div id="seccion-video" style="text-align: center; margin-top: 30px;"></div>
+            <h3 class="titulo-video">Video explicativo</h3>
+
+            <video width="640" height="360" controls>
+              <source src="video/planetas.mp4" type="video/mp4">
+              Tu navegador no soporta el formato de video.
+            </video>
+
+        </section>
+
+        <section class="seccion-suscripcion" id="suscripcion">
+            <h2>Suscríbete al boletín espacial</h2>
+            <form id="form-suscripcion">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" placeholder="ejemplo@correo.com" aria-describedby="error-correo" required>
+                <button type="submit">Suscribirme</button>
+            </form>
+            <p id="error-correo" class="mensaje-formulario mensaje-error" aria-live="polite"></p>
+            <p id="mensaje-exito" class="mensaje-formulario mensaje-exito" aria-live="polite" hidden></p>
+        </section>
+    </main>
+
+    <dialog id="modal-planeta" aria-labelledby="modal-titulo">
+        <div class="contenido-modal">
+            <button type="button" class="cerrar-modal" aria-label="Cerrar detalles">✕</button>
+            <h2 id="modal-titulo"></h2>
+            <div id="modal-detalles"></div>
+        </div>
+    </dialog>
+
+    <footer class="pie-pagina">
+        <p>By Maria Rangel Elibaris Pineda.</p>
+    </footer>
+</body>
+</html>
